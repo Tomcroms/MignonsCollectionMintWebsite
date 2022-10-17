@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Minions</title>
+    <link rel ="stylesheet" href="./indexCSS.css"/>
+</head>
+<body>
+    <img src="./images/minions.jpg" alt="minions">
+    <main class="main">
+        <div class="info_div">
+            <p class="txt_info" id="txt_info">Connect your wallet to adopt a minion</p>
+        </div>
+        <div class="web3">
+            <button class="connectWallet" id="connectWallet_bouton" onclick="connectWallet()"> 
+                <h3 class="txt_bouton_mint" id="connectWallet_txt">Connect Metamask</h3>
+            </button>
+            <button class="mint_bouton" id="mint_bouton"> 
+                <h3 class="txt_bouton_mint" id="mint_txt">Adopt a minion</h3>
+            </button>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+<script src="./index.js"></script>
+</html>
