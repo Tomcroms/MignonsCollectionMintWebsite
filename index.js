@@ -1,4 +1,4 @@
-const erc721Address = "0xe3fF0115e61FAE4C1Ad54bcCDd96daAcf8Df4A3B";
+const erc721Address = "0xe64B705BFc7d80A656F202B3765553F9A27fcDF9";
 const erc721ABI = [
 	{
 		"inputs": [],
@@ -588,3 +588,25 @@ window.ethereum.on("chainChanged", () =>{
 window.ethereum.on("disconnect",()=> {
     window.location.reload();
 })
+
+
+async function test()
+{
+	const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = await provider.getSigner();
+
+    const erc721Contract = new ethers.Contract(erc721Address, erc721ABI, signer); 
+    await erc721Contract.safeMint(account, {value: ethers.utils.parseEther("0.01")});
+
+	await erc721Contract.sendTransaction.wait();  // envoie une transaction --> peut être pas la bonne idée
+
+	//sinon : 
+	//let currentBlock = await provider.getBlockNumber();
+	//let nextBlock;
+	//while(currentBlock != nextBlock)
+	//{
+	//	nextBlock = await provider.getBlockNumber();
+	// 	//faire tourner la boucle while jusqu'à obtenir le nouveau block --> actualiser la page une fois le nouveau block mint
+		//en même temps afficher un chargement dasn le btn mint
+	//}
+}
